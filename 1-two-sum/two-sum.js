@@ -5,13 +5,14 @@
  */
 var twoSum = function (nums, target) {
     let result = []
+    let cache = new Map()
     nums.forEach((num, i) => {
         if (result.length === 2) return
-        nums.forEach((num2, i2) => {
-            if (i !== i2 && num + num2 === target) {
-                result.push(i, i2)
-            }
-        })
+        let cachedNumber = cache.get(target - num)
+        if (cachedNumber !== undefined && cachedNumber !== i) {
+            return result.push(i, cachedNumber)
+        }
+        cache.set(num, i)
     })
     return result
 };
