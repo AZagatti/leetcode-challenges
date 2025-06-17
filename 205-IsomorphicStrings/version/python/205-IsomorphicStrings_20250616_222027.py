@@ -16,6 +16,4 @@ class Solution:
                 return False
             mapping[s[i]] = t[i]
             viewed.add(t[i])
-        print(mapping, viewed)
-        return True 
-            
+        return True
